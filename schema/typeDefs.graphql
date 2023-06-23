@@ -1,0 +1,53 @@
+
+#define types definitions
+
+type Query {
+  getSingleBook(id: String!): getSingleBook
+  getBooksList: getBooksList
+}
+
+type Mutation {
+  createBook(input: addBook!): getSingleBook 
+  updateBook(input: newUpdatedBook!): getSingleBook 
+  deleteBook(id: String!): getSingleBook 
+}
+
+type error {
+  code: String!
+  message: String!
+} 
+
+type Book {
+  id: String!
+  title: String!
+  author: String!
+  publicationYear: Int!
+  createdAt: String!
+  updatedAt: String!
+}
+
+type getSingleBook {
+  book: Book
+  success: Boolean!
+  error: error
+}
+
+type getBooksList {
+  books: [Book]
+  success: Boolean!
+  error: error
+}
+
+input addBook {
+  title: String!
+  author: String!
+  publicationYear: Int!
+}
+
+input newUpdatedBook {
+  id: String!
+  title: String
+  author: String
+  publicationYear: Int
+}
+
